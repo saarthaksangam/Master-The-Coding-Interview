@@ -17,6 +17,7 @@ class MyArray{
     pop(){
         const lastItem = this.data[this.length - 1]
         delete this.data[this.length - 1]
+        this.length--
         return lastItem
     }
 
@@ -30,7 +31,7 @@ class MyArray{
         for (let i = index; i < this.length-1; i++){
             this.data[i] = this.data[i + 1]
         }
-        delete this.data[this.length - 1]
+        delete this.data[this.length-1]
         this.length--
     }
 }
@@ -40,5 +41,6 @@ newArray.push("Hello")
 newArray.push("World")
 newArray.push("!")
 newArray.pop()
-newArray.delete_by_key(1)
+newArray.delete_by_key(0)
 newArray.get(0)
+console.log(newArray)
