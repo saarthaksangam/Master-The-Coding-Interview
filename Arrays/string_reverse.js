@@ -15,7 +15,11 @@ function string_reverse1(str) {
 //method 2 - using built-in reverse() function
 let string_reverse2 = (str) => console.log(str.split('').reverse().join(''));
 
+//method 3 - without the split
+let string_reverse3 = (str) => console.log([...str].reverse().join(''));
+
 
 
 string_reverse1("Hello")
 string_reverse2("World")
+string_reverse3("Safe from Coronavirus?")
