@@ -29,7 +29,7 @@ class LinkedList {
       }
       this.tail.next = newNode
       this.tail = newNode
-      this.length
+      this.length++
       return this
     }
   }
