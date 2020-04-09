@@ -14,6 +14,7 @@ class LinkedList {
       this.tail = this.head;
       this.length = 1;
     }
+    
     append(value) {
         //Code here
         const newNode = new Node(value)
@@ -41,26 +42,58 @@ class LinkedList {
       }
       return array.join(' -> ')
     }
+    
+    traverseToIndex(index) {
+      let counter = 0
+      let currentNode = this.head
+      while(counter !== index) {
+        currentNode = currentNode.next
+        counter++
+      }
+      return currentNode
+    }
 
-    // insert(index, value) {
-    //   const newNode = new Node(value)
-    //   let i=0
-    //   while(i<index) {
-    //     let insert_after_node = this.head.next
-    //     i++
-    //   }
-    //   insert_after_node.value = value
+    insert(index, value) {
+      if(index >= this.length) {
+        return this.append(value)
+      }
+      const newNode = new Node(value)
+      const leader = this.traverseToIndex(index - 1)
+      const holdingPointer = leader.next
+      leader.next = newNode
+      newNode.next = holdingPointer
+      this.length++
+      return this.printList()
+    }
 
-    // }
+    remove(index) {
+      if(index >= this.length) {
+        console.log("Entered index out of bounds")
+      }
+      if(this.length === 0) {
+        console.log("Linked List is empty");
+      }
+      const leader = this.traverseToIndex(index - 1)
+      const unwantedNode = leader.next
+      leader.next = unwantedNode.next
+      delete this.unwantedNode
+      this.length--
+      return this.printList()
+    }
+
+   
   }
   
   let myLinkedList = new LinkedList(10);
   myLinkedList.prepend(7);
   myLinkedList.append(15);
+  myLinkedList.insert(2, 99);
+  myLinkedList.insert(20, 88);
   console.log(myLinkedList.printList());
-    
- // myLinkedList.append(16);
+  myLinkedList.remove(2)
+  console.log(myLinkedList.printList());
   
+    
   
   
   
