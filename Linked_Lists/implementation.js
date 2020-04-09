@@ -31,12 +31,34 @@ class LinkedList {
       this.length++
       return this
     }
+
+    printList() {
+      const array = []
+      let currentNode = this.head
+      while(currentNode !== null) {
+        array.push(currentNode.value)
+        currentNode = currentNode.next
+      }
+      return array.join(' -> ')
+    }
+
+    // insert(index, value) {
+    //   const newNode = new Node(value)
+    //   let i=0
+    //   while(i<index) {
+    //     let insert_after_node = this.head.next
+    //     i++
+    //   }
+    //   insert_after_node.value = value
+
+    // }
   }
   
   let myLinkedList = new LinkedList(10);
   myLinkedList.prepend(7);
-  console.log(myLinkedList);
-  
+  myLinkedList.append(15);
+  console.log(myLinkedList.printList());
+    
  // myLinkedList.append(16);
   
   
